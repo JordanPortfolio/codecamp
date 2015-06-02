@@ -1,21 +1,49 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <title></title>
-    <script type="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+<div class="container">
+<a class="button red" title="button" onclick="alert(palindrome('Race Car'))"><span>✓</span>Is 'Race Car' a Palindrome?</a>
+<a class="button red" title="button" onclick="alert(palindrome('Hello'))"><span>✓</span>Is 'Hello' a Palindrome?</a>
+</div>
+<div class="container">
+
+    <a class="button red" id="buttonTrue" title="button"><span>✓</span>Is 'Race Car' a Palindrome?</a>
+    <br />
+    <a class="button red" id="buttonFalse" title="button"><span>✓</span>Is 'Hello' a Palindrome?</a>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="script.js"></script>
-    <!-- A button that returns an alert displaying the factorialized number of 20 -->
-    <input type='button' value="Is 'Race Car' a Palindrome?" onclick="alert(palindrome('Race Car'))">
-    
-    <!-- A button that returns an alert displaying the factorialized number of -20 -->
-    <input type='button' value="Is 'Hello' a Palindrome?" onclick="alert(palindrome('hello'))">
+    <script>
+    $(document).ready(function() {
+        $('#buttonTrue').on('click', function() {
+            if ($(this).attr('data-click-state') == 1) {
+                $(this).attr('data-click-state', 0)
+                $(this).html("<span>✓</span>Is 'Race Car' a Palindrome?")
+            } else {
+                $(this).attr('data-click-state', 1)
+                $(this).html("<span>✓</span>" + palindrome("Race Car"))
+            }
+        });
+
+        $('#buttonFalse').on('click', function() {
+            if ($(this).attr('data-click-state') == 1) {
+                $(this).attr('data-click-state', 0)
+                $(this).html("<span>✓</span>Is 'Hello' a Palindrome?")
+            } else {
+                $(this).attr('data-click-state', 1)
+                $(this).html("<span>✓</span>" + palindrome("Hello"))
+            }
+        });
+    });
+    </script>
 </body>
 
 </html>

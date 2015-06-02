@@ -5,9 +5,28 @@
     <title></title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+    <div class="container">
+        <a class="button red" id="buttonTrue" title="button"><span>✓</span>'Hello' backwards is...</a>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#buttonTrue').on('click', function() {
+            if ($(this).attr('data-click-state') == 1) {
+                $(this).attr('data-click-state', 0)
+                $(this).html("<span>✓</span>'Hello' backwards is...")
+            } else {
+                $(this).attr('data-click-state', 1)
+                $(this).html("<span>✓</span>" + reverseString("Hello"))
+            }
+        });
+    });
+    </script>
     <script>
     function reverseString(str) {
         var string = '';
